@@ -13,7 +13,7 @@
                 br
                 | I #[strong.has-text-white build] websites, libraries, servers, and everything in between.
                 br
-                | I also love writing blog posts and chicken nuggets 🐔
+                | I also love writing blog posts and {{loveMOTD}}
           .column
             div.field.is-grouped(v-for="(skill, index) in skills" :key="index")
               b-tooltip.mr-05(:label="skill.label" position="is-left" animated type="is-light")
@@ -21,35 +21,30 @@
               b-progress.custom-progress.control.is-expanded(:value="skill.level" type="is-progress")
             p.has-text-weight-semibold.has-text-white.is-italic.has-text-centered.pb-05 Others worth mentioning...
             p.has-text-centered.has-text-weight-light.has-text-white Git | Express | MongoDB | Bulma | Material | Azure | GCP | SASS
-        .mb-1
-          b-button(type="is-primary" outlined tag="a" href="mailto:alaazorkane@gmail.com" target="_blank") Get in touch
-        b-icon.ptr.mr-1(v-for="(social, index) in socialLinks" :key="index"
-          :icon="social.icon" size="is-medium" @click.native="openWindow(social.link)")
+        FooterBar.pt-3
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import FooterBar from "@/components/FooterBar.vue";
 
-@Component
+@Component({
+  components: { FooterBar }
+})
 export default class Home extends Vue {
-  private socialLinks = [
-    {
-      icon: "github",
-      link: "https://github.com/alaazorkane"
-    },
-    {
-      icon: "twitter",
-      link: "https://twitter.com/alaazork"
-    },
-    {
-      icon: "linkedin",
-      link: "https://www.linkedin.com/in/alaazorkane/"
-    },
-    {
-      icon: "facebook",
-      link: "https://www.facebook.com/alaa.zorkane1"
-    }
-  ];
+  mounted() {
+    const motd = [
+      "chicken nuggets 🐔",
+      "noodles 🍜",
+      "pizza 🍕",
+      "memes ( ͡° ͜ʖ ͡°)",
+      "browsing reddit 💻",
+      "harry potter 🧙",
+      "video games 🕹️"
+    ];
+    this.loveMOTD = motd[Math.floor(Math.random() * motd.length)];
+  }
+  private loveMOTD = "...";
   private skills = [
     {
       icon: "language-javascript",
