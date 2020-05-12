@@ -11,6 +11,16 @@ $body-color: $primary;
 $title-color: $secondary;
 // background
 $body-background-color: #252934;
+$progress-bar-background-color: #fff;
+// languages colors
+$progress: #ff43d0;
+$progress-invert: findColorInvert($progress);
+$vue: hsl(150, 91%, 50%);
+$vue-invert: findColorInvert($vue);
+$python: hsl(44, 100%, 65%);
+$python-invert: findColorInvert($python);
+$cpp: hsl(189, 100%, 71%);
+$cpp-invert: findColorInvert($cpp);
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
@@ -49,6 +59,22 @@ $colors: (
   "danger": (
     $danger,
     $danger-invert,
+  ),
+  "progress": (
+    $progress,
+    $progress-invert,
+  ),
+  "vue": (
+    $vue,
+    $vue-invert,
+  ),
+  "cpp": (
+    $cpp,
+    $cpp-invert,
+  ),
+  "python": (
+    $python,
+    $python-invert,
   ),
 );
 
