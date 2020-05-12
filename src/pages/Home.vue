@@ -92,9 +92,6 @@ export default class Home extends Vue {
     "project manager",
     "community helper"
   ];
-  openWindow(link: string) {
-    window.open(link);
-  }
 }
 </script>
 

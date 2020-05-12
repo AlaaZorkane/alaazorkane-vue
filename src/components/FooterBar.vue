@@ -30,5 +30,8 @@ export default class FooterBar extends Vue {
       link: "https://www.facebook.com/alaa.zorkane1"
     }
   ];
+  openWindow(link: string) {
+    window.open(link);
+  }
 }
 </script>
